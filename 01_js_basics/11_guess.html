@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <p>Gæt et tal, mellem 1 og 20 - tjek konsollen</p>
+    <input type="text" id="guess">
+    <button>Klik, for at gætte tallet</button>
+
+    <script>
+        //Opgaven går ud på at consollen skal lave et tilfældigt tal, som brugeren kan gætte på hvad er, i et inputfelt.
+        //Consollen skal udskrive, hvor mange gæt man har brugt, eller om det tal man har gættet er højere eller lavere end det man gætter
+
+        let numberGuess = Math.floor(Math.random() * 21);
+        console.log(numberGuess);
+
+        let antalGuess = 0;
+
+        document.querySelector("button").addEventListener("click", buttonClicked);
+
+        function buttonClicked() {
+            //Hver gang der klikkes, tilføjes der en counter på antal gange der gættes
+            antalGuess++;
+
+            //.value er en måde at vise værdien i det angivede
+            if (numberGuess == document.querySelector("#guess").value) {
+                console.log(`Rigtigt! Du brugte ${antalGuess} gæt! Hvis du vil spille igen, indtast dit nye gæt!`);
+
+                //Man kalder funktionen igen, fordi den skal starte forfra, når man har gættet rigtigt
+                numberGuess = Math.floor(Math.random() * 21);
+                console.log(numberGuess);
+
+                antalGuess = 0;
+
+            } else if (numberGuess < document.querySelector("#guess").value) {
+                console.log("Forkert - tallet er lavere end dit gæt!");
+            } else if (numberGuess > document.querySelector("#guess").value) {
+                console.log("Forkert - tallet er højere end dit gæt!")
+            }
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+
+    <style>
+        /*Sitet skal opsættes semantisk, og der skal bruges flex og grid, til at lave sitet responsitvt (virker ikke endnu ...)*/
+
+        body {
+            margin: auto 0;
+            padding: 5rem;
+            max-width: 100vw;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        section {
+            display: grid;
+            /*Nedenstående linje, angiver at der skal gentages et layout med autofit, og som max må være 400px bred, og deles på 1fr*/
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            grid-gap: 1rem;
+        }
+
+        article {
+            padding: 10px;
+        }
+
+        footer,
+        h1 {
+            text-align: center;
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <h1>Title</h1>
+    </header>
+
+    <main>
+        <h2>Underoverskrift</h2>
+        <section>
+            <article>
+                <img src="https://placeimg.com/400/300/nature" alt="Foto1">
+                <h3>Artikel 1</h3>
+                <p>Klik på dette billede, og det vil skifte fra et naturbillede til et billede med mennekser på!</p>
+            </article>
+
+            <article>
+                <img src="https://placeimg.com/400/300/animals" alt="Foto2">
+                <h3>Artikel 2</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed necessitatibus quaerat cupiditate consequuntur alias. Architecto, labore. Enim, voluptate illum fuga neque nulla, repellendus repudiandae maxime itaque culpa necessitatibus quaerat nihil.</p>
+            </article>
+        </section>
+    </main>
+
+    <footer>Dette er en Footer</footer>
+
+    <script>
+        //Øvelse 6
+        //når der klikkes på det første billede, skal det skiftes ud
+
+        document.addEventListener("DOMContentLoaded", start);
+        console.log("Siden har loadet DOM'en");
+
+        function start() {
+            //HTML-section defineres i en variabel
+            let mainSection = document.querySelector("section");
+
+            //Der oprettes en variabel, med createElement, med værdien article (den laves et article-tag)
+            let newArticle = document.createElement("article");
+
+            //Der tilføjes et h3-tag
+            let title = document.createElement("h3");
+
+            //createTextNode, bruges til at angive en streng af tekst, og værdien sættes i en variabel
+            let titleText = document.createTextNode("Artikel 3");
+
+            //Teksten (titleText) der skal indsættes i h3 (title), indsættes via appendChild-propertien
+            title.appendChild(titleText);
+
+            //artiklen tilføjes den lavede h3 - indsættes længere nede i scriptet, da den skal komme efter billedet
+            //newArticle.appendChild(title);
+
+            //Man tilføjer "et ekstra barn" til mainSection; i dette tilfælde tilføjes variablen newArticle, med værdien article-tag
+            //Dette tag, tilføjes til slut, da alt ovenstående "til slut" skal indsættes i sectionen
+            mainSection.appendChild(newArticle);
+
+            //----------------------------------------
+
+            //indsæt img i article
+            let img3 = document.createElement("img");
+
+            img3.src = "https://placeimg.com/400/300/arch";
+
+            newArticle.appendChild(img3);
+
+            //artiklen tilføjes den lavede h3
+            newArticle.appendChild(title);
+
+            //------------------------------------------
+
+            //indsæt p-text
+            let text3 = document.createElement("p");
+
+            let text3Content = document.createTextNode("Dette er en tekst til p-tagget. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed necessitatibus quaerat cupiditate consequuntur alias. Architecto, labore. Enim, voluptate illum fuga neque nulla, repellendus repudiandae maxime itaque culpa necessitatibus quaerat nihil.");
+
+            text3.appendChild(text3Content);
+
+            newArticle.appendChild(text3);
+
+            //------------------------------
+            //Få billedet til at skifte
+
+            let imgClick = document.querySelector("img");
+            let ranNum = Math.floor(Math.random() * 11) + 1;
+
+            imgClick.addEventListener("click", imgClicked);
+
+            function imgClicked() {
+
+                //Ved at angive den igen, gør det at man kan klikke på den flere gange!
+                ranNum = Math.floor(Math.random() * 11) + 1;
+
+                imgClick.src = ("https://placeimg.com/400/300/people/grayscale" + ranNum);
+                console.log("Billedet er klikket på!");
+
+            }
+        }
+
+    </script>
+</body>
+
+</html>

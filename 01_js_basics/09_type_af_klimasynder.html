@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <script>
+        let timer = 3;
+        let co2UdledtIKgVedFlyrejse = timer * 109;
+
+
+        let outPut =
+            `Ved ${timer} timers flyrejse har du udledt ${co2UdledtIKgVedFlyrejse} kg CO2`;
+
+        if (co2UdledtIKgVedFlyrejse < 100) {
+            outPut += " Tæt på Thunberg";
+        } else if (co2UdledtIKgVedFlyrejse >= 100 && co2UdledtIKgVedFlyrejse < 200) {
+            outPut += " Ja ja, du behøver ikke melde dig ud ad Å";
+        } else if (co2UdledtIKgVedFlyrejse >= 200 && co2UdledtIKgVedFlyrejse < 600) {
+            outPut += " Det er godt forturismen i nordeuropa";
+        } else {
+            outPut += " Nå ja, vi kan jo altid kolonisere en anden planet ...";
+        }
+
+        console.log(outPut);
+
+    </script>
+</body>
+
+</html>

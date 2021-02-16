@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <style>
+        article {
+            border: 1px solid;
+            margin: 10px;
+            padding: 10px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <section id="liste"></section>
+    <template>
+        <article class="animals">
+            <h3></h3>
+            <img src="" alt="">
+            <p class="typeP"></p>
+            <ul class="vennerListe"></ul>
+        </article>
+    </template>
+
+    <script>
+        //variaberne defineres, her defineres sectionen hvor indholdet skal stå, og template-tagget
+        let visDyr = document.querySelector("#liste");
+        let animalsTemplate = document.querySelector("template");
+
+        //vi skal fortælle at vi gerne vil hente filer fra json
+        const fil = "08_fetchOgjson.json";
+
+        //vi laver en asynkron funktion, som skal vente på at der bliver fetchet, ud fra "fil"-filens indhold i .json
+        async function hentdata(fil) {
+            const result = await fetch(fil);
+            const json = await result.json();
+            vis(json);
+        }
+
+        //funktionen loades når siden err loadet
+        function vis(dyreArter) {
+
+            //for hver dyr, i arrayet, (der laves en "klon" inden da) skal der tilføjes til h3, p og img, med textContent fra arrayet
+            dyreArter.forEach(dyr => {
+                let klon = animalsTemplate.cloneNode(true).content;
+                klon.querySelector("h3").textContent = dyr.navn;
+                klon.querySelector(".typeP").textContent = dyr.type;
+
+                dyr.venner.forEach(ven => {
+                    klon.querySelector(".vennerListe").innerHTML += "<li>" + ven + "</li>"
+                })
+
+                //klonen bliver apended på sectionen, hvor templaten skulle være
+                visDyr.appendChild(klon);
+                console.log("Opgave fuldført!");
+            })
+
+        }
+        hentdata(fil);
+
+        console.log()
+
+    </script>
+</body>
+
+</html>

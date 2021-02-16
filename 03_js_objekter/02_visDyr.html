@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+
+    <article></article>
+
+    <script>
+        //øvelse 2: opret et objekt og vis i DOM
+
+        document.addEventListener("DOMContentLoaded", start);
+        console.log("Siden har loadet DOM");
+
+        function start() {
+            let dyr = {
+                "navn": "gris",
+                "type": "pattedyr",
+                "billede": "http://mabe-kea.dk/E19/pics/pig.png",
+                "levested": "svinefarme"
+            }
+
+            console.log(
+                `navn:${dyr.navn}
+            type:${dyr.type}
+            billede:${dyr.billede}
+            levested:${dyr.levested}`);
+
+            const visObjekt = document.querySelector("article");
+
+            visObjekt.textContent =
+                `Dyr: ${dyr.navn},
+            type: ${dyr.type},
+            levested: ${dyr.levested}`;
+
+            //indsæt billede af gris
+            let grisImg = document.createElement("img");
+
+            grisImg.src = dyr.billede;
+
+            visObjekt.appendChild(grisImg);
+
+        }
+
+    </script>
+</body>
+
+</html>

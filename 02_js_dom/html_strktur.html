@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+
+    <style>
+        /*Sitet skal opsættes semantisk, og der skal bruges flex og grid, til at lave sitet responsitvt (virker ikke endnu ...)*/
+
+        body {
+            margin: auto 0;
+            padding: 5rem;
+            max-width: 100vw;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        section {
+            display: grid;
+            /*Nedenstående linje, angiver at der skal gentages et layout med autofit, og som max må være 400px bred, og deles på 1fr*/
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            grid-gap: 1rem;
+        }
+
+        article {
+            padding: 1rem;
+        }
+
+        footer,
+        h1 {
+            text-align: center;
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <h1>Title</h1>
+    </header>
+
+    <main>
+        <h2>Underoverskrift</h2>
+        <section>
+            <article>
+                <img src="https://placeimg.com/400/300/nature" alt="Foto1">
+                <h3>Artikel 1</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed necessitatibus quaerat cupiditate consequuntur alias. Architecto, labore. Enim, voluptate illum fuga neque nulla, repellendus repudiandae maxime itaque culpa necessitatibus quaerat nihil.</p>
+            </article>
+
+            <article>
+                <img src="https://placeimg.com/400/300/animals" alt="Foto2">
+                <h3>Artikel 2</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed necessitatibus quaerat cupiditate consequuntur alias. Architecto, labore. Enim, voluptate illum fuga neque nulla, repellendus repudiandae maxime itaque culpa necessitatibus quaerat nihil.</p>
+            </article>
+        </section>
+    </main>
+
+    <footer>Dette er en Footer</footer>
+
+    <script>
+        //Brug af innterHTML & textContent
+        const titel = document.querySelector("header");
+        console.log(titel);
+
+        titel.textContent = "Velkommen";
+        titel.innerHTML = "<h1>Velkommen til</h1>";
+
+        //Den sidste ændringer træder i kraft, og derfor kan man ikke se textContent-elementet
+
+    </script>
+</body>
+
+</html>

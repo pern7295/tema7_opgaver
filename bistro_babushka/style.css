@@ -1,0 +1,451 @@
+/*GENEREL CSS*/
+
+* {
+    box-sizing: border-box;
+    font-size: 16px;
+    margin: 0;
+}
+img {
+    max-width: 100%;
+    filter: grayscale(30%);
+}
+body {
+    margin: auto 0;
+    max-width: 100vw;
+    overflow-x: hidden;
+}
+html {
+    scroll-behavior: smooth;
+}
+h1 {
+    text-align: center;
+    font-size: 3rem;
+    font-family: 'Alegreya Sans SC', sans-serif;
+}
+h2 {
+    text-align: center;
+    font-size: 1.5rem;
+    font-family: 'Alegreya Sans SC', sans-serif;
+}
+h3 {
+    font-family: 'Alegreya Sans SC', sans-serif;
+    font-size: 1.2rem;
+}
+p {
+    font-family: 'Open Sans', sans-serif;
+}
+article {
+    background-color: #ffffff;
+}
+a {
+    font-family: 'Alegreya Sans SC', sans-serif;
+    font-size: 2rem;
+}
+
+/*SPLASH SECTION*/
+
+#splash {
+    background-image: url(img/restaurant.jpg);
+    background-size: cover;
+    background-position: 50%;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    max-width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+.splash_container {
+    position: relative;
+}
+.splash_item {
+    background-image: url(img/bistro_b.svg);
+    background-size: cover;
+    background-position: 50%;
+    position: relative;
+    width: 350px;
+    height: 350px;
+    margin: 0 auto;
+    top: 30vh;
+}
+.splash_ani {
+    animation-name: splash_ani_kf;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+    animation-timing-function: ease;
+}
+@keyframes splash_ani_kf {
+    0% {
+        opacity: 0;
+        transform: scale(2);
+    }
+    100% {
+        opacity: 1;
+    }
+}
+#scroll_menu {
+    padding-top: 3rem;
+}
+#menuNavn {
+    padding-top: 1rem;
+    font-size: 2.5rem;
+}
+
+/*MENUNAVIGATION*/
+
+.intro {
+    padding: 2rem;
+    padding-bottom: 0;
+}
+.linje {
+    padding: 0.2rem;
+    background-color: antiquewhite;
+    margin-left: 40%;
+    margin-right: 40%;
+    margin-bottom: 2.5rem;
+    margin-top: 0.5rem;
+}
+#menukort img:hover {
+    transform: scale(1.08);
+    cursor: pointer;
+    transition: all 0.4s;
+}
+#menukort {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    max-width: 100vw;
+    grid-gap: 2rem;
+    padding-left: 10vw;
+    padding-right: 10vw;
+    overflow: hidden;
+    position: relative;
+}
+#menu {
+    border: 1px solid #dddddd;
+    overflow: hidden;
+}
+#menukort img {
+    width: 100%;
+    max-height: 14.5rem;
+    object-fit: cover;
+}
+#menukort p {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 1rem;
+}
+#menukort h2 {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+.pris {
+    text-align: right;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/*GLOBAL NAVIGATION*/
+
+.nav_container {
+    display: flex;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.79);
+    width: 100vw;
+    height: 5rem;
+    padding: 1rem;
+    width: 100vw;
+    text-align: center;
+    position: fixed;
+    z-index: 1;
+}
+.nav_container a {
+    font-size: 1.5rem;
+    font-family: 'Alegreya Sans SC', sans-serif;
+    text-decoration: none;
+    color: black;
+}
+.navigation {
+    padding: 1rem;
+    text-align: center;
+}
+
+/*LOKAL NAVIGATION*/
+
+.valgt {
+    background-color: #434343;
+    color: white;
+    font-family: 'Alegreya Sans SC', sans-serif;
+}
+button {
+    padding-right: 2rem;
+    padding-left: 2rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin: 1rem;
+    border: 0.1em solid #FFFFFF;
+    transition: all 0.2s;
+    background-color: antiquewhite;
+    font-family: 'Alegreya Sans SC', sans-serif;
+    cursor: pointer;
+}
+button:hover {
+    color: white;
+    background-color: #434343;
+}
+#menuNavigation {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    flex-direction: row;
+    justify-content: center;
+    max-width: 100vw;
+}
+
+/*RESERVER BORD*/
+
+#scroll_bord {
+    padding-top: 4rem;
+}
+.bord {
+    background-color: #434343;
+    padding: 1rem;
+    width: 70%;
+    margin: 0 auto;
+    color: white;
+    border-left: 6px double #434343;
+    border-right: 6px double #434343;
+    outline: 12px double #434343;
+}
+.bistro_bestil {
+    text-align: center;
+    padding: 2rem;
+}
+.restaurant_pic {
+    background-image: url(img/plate.jpg);
+    background-size: cover;
+    background-position: 50%;
+    background-attachment: fixed;
+    height: 100%;
+    padding: 5rem;
+}
+.indtast_section {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+form label {
+    font-family: 'Alegreya Sans SC', sans-serif;
+    font-size: 0.8rem;
+}
+form input {
+    font-family: 'Open Sans', sans-serif;
+}
+.info {
+    margin: 0 auto;
+}
+#submit {
+    width: 100%;
+    float: right;
+    padding-right: 2rem;
+    padding-left: 2rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border: 0.1em solid #FFFFFF;
+    transition: all 0.2s;
+    background-color: antiquewhite;
+    font-family: 'Alegreya Sans SC', sans-serif;
+    cursor: pointer;
+}
+#submit:hover {
+    color: white;
+    background-color: #434343;
+}
+
+/*OM OS*/
+
+#scroll_om {
+    padding-top: 2rem;
+}
+#om_section {
+    background-image: url(img/cafe.jpg);
+    background-size: cover;
+    background-position: 50%;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    margin-top: 4rem;
+}
+#om_section .section_wrapper {
+    width: 50vw;
+    margin: 0 auto;
+    padding: 1rem;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.79);
+    border-left: 6px double white;
+    border-right: 6px double white;
+    outline: 12px double white;
+}
+
+/*FOOTER*/
+
+.tilbage_top {
+    padding: 2rem;
+}
+.tilbage_top a {
+    text-align: center;
+    text-decoration: underline;
+    color: black;
+}
+footer {
+    display: flex;
+    justify-content: center;
+    background-color: #434343;
+    padding: 1rem;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+}
+
+/*BURGERMENU*/
+
+.burgermenu_container {
+    width: 3rem;
+    height: 3rem;
+    margin-top: 2.5rem;
+    margin-left: 1rem;
+    cursor: pointer;
+    z-index: 5;
+}
+.bar {
+    height: 0.3rem;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    display: block;
+    border-radius: 1rem;
+    transition: 0.4s ease;
+    border: 1px solid #868686;
+}
+#bar1 {
+    transform: translateY(-1rem);
+}
+#bar3 {
+    transform: translateY(1rem);
+}
+.burgermenu_container {
+    position: fixed;
+}
+#burger_bck {
+    position: fixed;
+}
+
+/*------JS-CLASSES, ANIMATION, BURGERMENU-------*/
+
+.change .bar {
+    background-color: black;
+}
+.change #bar1 {
+    transform: translateY(0.4rem) rotateZ(-45deg);
+    background-color: black;
+}
+.change #bar3 {
+    transform: translateY(0rem) rotateZ(45deg);
+    background-color: black;
+}
+.change #bar2 {
+    display: none;
+}
+
+/*-----------BURGERMENU DISPLAY-----------*/
+
+.burgermenu_link {
+    display: none;
+    position: fixed;
+    z-index: 2;
+    margin: auto;
+    margin-top: 9rem;
+    max-width: 100vw;
+}
+.burgermenu_link a {
+    color: black;
+    text-decoration: none;
+    text-align: left;
+}
+.burgermenu_link a:hover {
+    color: white;
+    font-weight: bold;
+}
+.burger_link {
+    display: block;
+    padding: 2rem;
+}
+
+/*-----------BURGERMENU DESIGN-----------*/
+
+.burger_bck,
+#burgermenu {
+    top: 0;
+    position: absolute;
+}
+.burger_bck {
+    z-index: 1;
+    width: 0;
+    height: 0;
+    background-color: antiquewhite;
+    transition: 0.3s ease;
+}
+.change_img {
+    width: 80%;
+    height: 100%;
+}
+.change {
+    display: block;
+}
+.change1 {
+    animation-name: ease_nav_kf;
+    animation-duration: 0.5s;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+@keyframes ease_nav_kf {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+.nav_container {
+    display: none;
+}
+@media only screen and (min-width: 1000px) {
+    #menubar {
+        display: none;
+    }
+    .nav_container {
+        display: flex;
+    }
+    #burgermenu {
+        display: none;
+    }
+    #menuNavigation {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        flex-direction: row;
+        justify-content: center;
+        padding: 2rem;
+        max-width: 100vw;
+    }
+    .indtast_section {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    form label {
+        font-family: 'Alegreya Sans SC', sans-serif;
+        font-size: 1.3rem;
+    }
+    form input {
+        font-family: 'Open Sans', sans-serif;
+        width: 25vw;
+    }
+    #submit {
+        width: 60%;
+    }
+}

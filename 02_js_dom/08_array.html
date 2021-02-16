@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+
+    <h1>Playliste</h1>
+    <ul id="display"></ul>
+
+    <script>
+        //--------
+        const playliste = ["Sang1", "Sang2", "Sang3", "Sang4", "Sang5", "Sang6", "Sang7", "Sang8", "Sang9", "Sang10"];
+        console.log("Playlisten er indlæst!");
+
+        //Der loopes igennem indholdet på playlisten
+        playliste.forEach(visPlaylisten);
+
+        //Der udskrives i konsollen, værdien på alle sangene
+        function visPlaylisten(visNu) {
+            console.log(visNu);
+
+            display.innerHTML += "<li>" + visNu + "</li>";
+        }
+
+    </script>
+</body>
+
+</html>

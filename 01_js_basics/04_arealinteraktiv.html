@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <p>Hvad er længden?</p>
+    <input type="text" id="længde">
+
+    <p>Hvad er bredden?</p>
+    <input type="text" id="bredde">
+
+    <button>Klik og beregn areal - kig i konsollen</button>
+
+    <script>
+        /*
+                Dette program beregner arealet ud fra tal, der bliver givet i en inputboks. Der laves inputbokse i HTML, og i JS, kaldes at når subbmit-knappen klikkes på, udskrives der i konsollen, arealet på de angivede tal i inputfelterne, ved at lave variabler der kalder til #IDer, og disse "value", som i dette tilfælde er to forskellige tal, som til sammen har et areal.
+                */
+
+        document.querySelector("button").addEventListener("click", buttonClicked);
+
+        function buttonClicked() {
+            let længde = document.querySelector("#længde").value;
+            let bredde = document.querySelector("#bredde").value;
+            let areal = længde * bredde;
+
+            let resultat =
+                `Længden er ${længde} meter og bredde er ${bredde} meter. Arealet er ${areal}`;
+            console.log(resultat);
+
+        }
+
+    </script>
+</body>
+
+</html>

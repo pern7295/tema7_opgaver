@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forside | Bistro Babushka</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC&family=Open+Sans&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/svg+xml" href="img/bistro_b.svg">
+
+</head>
+
+<body>
+
+    <header>
+        <nav>
+
+            <div class="nav_container">
+                <div class="navigation"><a href="#scroll_menu">Menukort</a></div>
+                <div class="navigation"><a href="#scroll_bord">Reservér bord</a></div>
+                <div class="navigation"><a href="#scroll_om">Om os</a></div>
+            </div>
+
+            <div id="burgermenu">
+                <div class="burgermenu_container">
+                    <div class="back">
+                        <div id="bar1" class="bar"></div>
+                        <div id="bar2" class="bar"></div>
+                        <div id="bar3" class="bar"></div>
+                    </div>
+                </div>
+                <div class="burgermenu_link">
+                    <div id="burger1" class="burger_link">
+                        <a href="#scroll_menu">Menukort</a>
+                    </div>
+                    <div id="burger2" class="burger_link">
+                        <a href="#scroll_bord">Reservér bord</a>
+                    </div>
+                    <div id="burger3" class="burger_link">
+                        <a href="#scroll_om">Om os</a>
+                    </div>
+                </div>
+            </div>
+            <div id="burger_bck" class="burger_bck"></div>
+
+        </nav>
+    </header>
+
+    <main>
+
+        <section id="splash">
+            <div class="splash_container">
+                <div class="splash_item splash_ani"></div>
+            </div>
+        </section>
+
+        <div id="scroll_menu"></div>
+        <h1 class="intro">Menukort</h1>
+
+        <section id="menuNavigation">
+            <button data-kategori="alle" class="valgt">Alle retter</button>
+            <button data-kategori="forretter">Forretter</button>
+            <button data-kategori="hovedretter">Hovedretter</button>
+            <button data-kategori="desserter">Desserter</button>
+            <button data-kategori="sideorders">Sideorders</button>
+            <button data-kategori="drikkevarer">Drikkevarer</button>
+        </section>
+
+        <h1 id="menuNavn">Alle retter</h1>
+        <div class="linje"></div>
+        <section id="menukort"></section>
+
+        <div id="scroll_bord"></div>
+
+        <section class="bord">
+            <h1>RESERVÉR BORD</h1>
+            <div class="linje"></div>
+            <div class="restaurant_pic"></div>
+            <div class="bistro_bestil">
+                <h2>Reservér et bord hos Bistro Babushka!</h2>
+                <br>
+                <p>Vi glæder os til at byde dig velkommen, til en kulinarisk russisk madoplevelse, du sent vil glemme.</p>
+                <p>Når du reserverer et bord hos os, sender vi en bekræftelse pr. mail og SMS</p>
+            </div>
+            <br>
+            <div class="indtast_section">
+                <form class="info">
+                    <label for="fname">Navn</label>
+                    <br>
+                    <input type="text" id="fname" name="fname" placeholder="Indtast her">
+                    <br>
+                    <br>
+                    <label for="email">E-mail</label>
+                    <br>
+                    <input type="email" id="email" name="email" placeholder="Indtast her">
+                    <br>
+                    <br>
+                    <label for="mobil">Mobil</label>
+                    <br>
+                    <input type="tel" id="mobil" name="mobil" placeholder="Indtast her">
+                </form>
+
+                <form class="info">
+                    <label for="reserver_bord">Indtast reservation</label>
+                    <br>
+                    <input type="datetime-local" id="reserver_bord" name="reserver_bord">
+                    <br>
+                    <br>
+                    <input type="submit" id="submit" value="Reservér bord">
+                </form>
+            </div>
+        </section>
+
+        <div id="scroll_om"></div>
+
+        <section id="om_section">
+            <div class="section_wrapper">
+
+                <h1>Om os</h1>
+                <div class="linje"></div>
+                <p>Her kan du finde vores åbningstider og generelt info.
+                    <br>
+                    <br> Tøv ikke med at ringe og skrive til os - vi vil med glæde besvare alle de spørgsmål vi kan! </p>
+                <br>
+                <h2>Åbningstider</h2>
+                <div class="linje"></div>
+                <h3>Mandag - Fredag</h3>
+                <p>12:00-22:00</p>
+                <br>
+                <h3>Lørdag</h3>
+                <p>14:00-23:00</p>
+                <br>
+                <h3>Søndag</h3>
+                <p>LUKKET</p>
+                <br>
+                <h2>Kontakt</h2>
+                <div class="linje"></div>
+                <p>Eksempelvej 1</p>
+                <p>1234 Eksempelby</p>
+                <p>Tlf: +45 12 34 56 78</p>
+
+            </div>
+        </section>
+
+        <div class="tilbage_top">
+            <a href="#splash">
+                <p>Tilbage til toppen</p>
+            </a>
+        </div>
+
+    </main>
+
+    <!--Skabelon til fremvisning af menuretter-->
+    <template>
+        <article id="menu">
+            <img src="" alt="" class="billede_ret">
+            <h2 class="navn"></h2>
+            <p class="kort_beskrivelse"></p>
+            <p class="pris"></p>
+        </article>
+    </template>
+
+    <footer>
+        <div class="footer_section">
+            <div class="footer_item">
+                <h3>©Pernille Rendtorff │ 2. Semester │    Multimediedesigner</h3>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>

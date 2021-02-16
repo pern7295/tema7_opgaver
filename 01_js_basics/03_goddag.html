@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+
+    <input type="text" id="navn">
+    <button>Klik og kig i consollen</button>
+
+    <script>
+        //Denne opgave består af simpel HTML-tags, som angiver et inputfelt og et buttonfelt
+        //Inputfeltet er givet et ID, så man kan kalde på den i scriptet, senere
+        //Button kaldes ved "click", og går til funtionen buttonClicked
+        //I funktionen, angives variablen, som man gerne vil have opstår, når der klikkes. Den variabel, er det der angives i #navn, fra inputfeltet
+        //Når der klikkes på knappen, udskrives i consollen, en string af tekst, samt værdien fra inputfelet
+
+        document.querySelector("button").addEventListener("click", buttonClicked);
+
+        function buttonClicked() {
+            let brugerNavn = document.querySelector("#navn").value;
+            console.log(`Tillykke dit navn er ${brugerNavn}`);
+        }
+
+    </script>
+</body>
+
+</html>

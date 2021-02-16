@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <script>
+        //I denne opgave, skal consollen udskrive time-tallet på døgnet.
+        //Variablen, new Date().getHours, læser tidspunktet - for at teste om programmet virker, kan man udkommentere denne, og udskifte variablens værdi med et tal, inden for de givne konditioner
+
+        const time = new Date().getHours();
+        console.log(time);
+
+        if (time > 5 && time <= 10) {
+            console.log("godmorgen");
+
+        } else if (time > 10 && time <= 18) {
+            console.log("goddag");
+
+        } else if (time > 18 && time <= 24) {
+            console.log("godaften");
+        } else {
+            console.log("godnat");
+        }
+
+        /*
+        UNDERVISERENS LØSNING - OGSÅ EN RIGTIG LØSNING
+
+        const time = new Date().getHours();
+        console.log("Time", time);
+
+        if (time < 5) {
+            console.log("godnat");
+
+        } else if (time < 10) {
+            console.log("godmorgen");
+
+        } else if (time < 18) {
+            console.log("goddag");
+        } else {
+            console.log("godaften");
+        }
+
+        */
+
+    </script>
+</body>
+
+
+</html>

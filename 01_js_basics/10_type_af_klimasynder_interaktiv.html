@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <p>Hvor mange timer har du føjet?</p>
+    <input type="number" id="længde">
+
+    <button>Klik her, og kig i consollen</button>
+
+    <script>
+        let timer;
+        let co2UdledtIKgVedFlyrejse;
+
+        document.querySelector("button").addEventListener("click", buttonClicked);
+
+        function buttonClicked() {
+            timer = document.querySelector("#længde").value;
+            co2UdledtIKgVedFlyrejse = timer * 109;
+
+            let outPut =
+                `Ved ${timer} timers flyrejse har du udledt ${co2UdledtIKgVedFlyrejse} kg CO2`;
+
+            if (timer == "") {
+                outPut = "Det er ikke et tal - prøv igen";
+
+                console.log(outPut);
+            } else {
+                console.log(outPut);
+            }
+        }
+
+    </script>
+</body>
+
+</html>

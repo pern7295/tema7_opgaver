@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <p>Vuffis alder</p>
+    <input type="number" id="vuffiAlder">
+
+    <button>Klik for at beregne Vuffis begge aldere</button>
+
+
+    <script>
+        let vuffiAlder = document.querySelector("#vuffiAlder").value;
+        let vuffiAlderGammel;
+        let vuffiAlderNy;
+
+        document.querySelector("button").addEventListener("click", buttonClicked);
+
+        function buttonClicked() {
+
+            vuffiAlder = document.querySelector("#vuffiAlder").value;
+
+            vuffiAlderGammel = vuffiAlder * 7;
+            console.log(`Vuffi er ${vuffiAlderGammel} år gammel, i følge den gamle metode`);
+
+            vuffiAlderNy = 16 * Math.log(vuffiAlder) + 31;
+            console.log(`Vuffi er ${vuffiAlderNy} år gammel, i følge den nye metode`);
+
+        }
+
+    </script>
+</body>
+
+</html>

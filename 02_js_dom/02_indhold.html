@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+
+    <style>
+        /*Sitet skal opsættes semantisk, og der skal bruges flex og grid, til at lave sitet responsitvt (virker ikke endnu ...)*/
+
+        body {
+            margin: auto 0;
+            padding: 5rem;
+            max-width: 100vw;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        section {
+            display: grid;
+            /*Nedenstående linje, angiver at der skal gentages et layout med autofit, og som max må være 400px bred, og deles på 1fr*/
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            grid-gap: 1rem;
+        }
+
+        article {
+            padding: 1rem;
+        }
+
+        footer,
+        h1 {
+            text-align: center;
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <h1>Title</h1>
+    </header>
+
+    <main>
+        <h2>Underoverskrift</h2>
+        <section>
+            <article>
+                <img src="https://placeimg.com/400/300/nature" alt="Foto1">
+                <h3>Artikel 1</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed necessitatibus quaerat cupiditate consequuntur alias. Architecto, labore. Enim, voluptate illum fuga neque nulla, repellendus repudiandae maxime itaque culpa necessitatibus quaerat nihil.</p>
+            </article>
+
+            <article>
+                <img src="https://placeimg.com/400/300/animals" alt="Foto2">
+                <h3>Artikel 2</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed necessitatibus quaerat cupiditate consequuntur alias. Architecto, labore. Enim, voluptate illum fuga neque nulla, repellendus repudiandae maxime itaque culpa necessitatibus quaerat nihil.</p>
+            </article>
+        </section>
+    </main>
+
+    <footer>Dette er en Footer</footer>
+
+    <script>
+        //Øvelse 2B
+        //Udskift teksten i titlen, teksten og underoverskrifter v.h.af. javaScript
+
+        //Ændring af h1
+        const title = document.querySelector("h1");
+        title.innerHTML = "<h1>DETTE ER EN NY OVERSKRIFT</h1>";
+        console.log(title);
+
+        //Ændringer af h3 - artikel 1
+        const underoverskrift1 = document.querySelector("article h3");
+        underoverskrift1.textContent = "NY TITEL 1";
+        console.log(underoverskrift1);
+
+        //Ændringer af h3 - artikel 2
+        const underoverskrift2 = document.querySelector("article:nth-child(2) h3");
+        underoverskrift2.textContent = "NY TITEL 2";
+        console.log(underoverskrift2);
+
+        //Ændringer af p - artikel 1
+        const text1 = document.querySelector("article p");
+        text1.textContent = "Dette er en ny tekst 1";
+        console.log(text1);
+
+        //Ændringer af p - artikel 2
+        const text2 = document.querySelector("article:nth-child(2) p");
+        text2.textContent = "Dette er en nu tekst 2";
+        console.log(text2);
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+
+    <h1>Slideshow - Billedgalleri</h1>
+
+    <img src="" alt="Foto1">
+
+    <button>Videre</button>
+
+    <script>
+        //Slideshow øvelse
+
+        //knappen og billedet  vælges
+        let buttonBot = document.querySelector("button");
+
+        let imgElement = document.querySelector("img");
+
+        //værdierne indsættes i et array
+        let imgArray = [
+            "https://placeimg.com/640/480/animals",
+            "https://placeimg.com/640/480/arch",
+            "https://placeimg.com/640/480/nature",
+            "https://placeimg.com/640/480/people",
+            "https://placeimg.com/640/480/tech"
+        ];
+
+        //værdien af det første billede indsættes
+        imgElement.src = imgArray[0];
+
+        //når der klikkes på billederne, skal de skifte
+        buttonBot.addEventListener("click", changeImg);
+
+        //vi sætter en counter, så den ved at vi skal starte på 0, for at kunne tælle op i arrayet
+        let imgNum = 0;
+
+        //når billedet skal skifte, tilføjes en counter
+        function changeImg() {
+            imgNum++;
+
+            //hvis billederne er STØRRE end 4, så starter IF-sætningen og sætter den lig 0 igen, og knappen skifter til forfra
+            if (imgNum > 4) {
+                imgNum = 0;
+                buttonBot.textContent = "Forfra";
+
+                //ellers skriver knappen blot videre
+            } else {
+                buttonBot.textContent = "Videre";
+            }
+
+            //når man klikker på videre, så tilføjes at src får en ny værdi fra arrayet[med væriden fra disse parenteser]
+            imgElement.src = imgArray[imgNum];
+        }
+
+    </script>
+</body>
+
+</html>

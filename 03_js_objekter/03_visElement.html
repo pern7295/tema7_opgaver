@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+
+    <article id="piggy">
+        <h3></h3>
+        <img src="" alt="">
+        <p></p>
+        <p></p>
+    </article>
+
+    <script>
+        //øvelse 2: opret et objekt og vis i DOM
+
+        document.addEventListener("DOMContentLoaded", start);
+        console.log("Siden har loadet DOM");
+
+        function start() {
+            let dyr = {
+                "navn": "gris",
+                "type": "pattedyr",
+                "billede": "http://mabe-kea.dk/E19/pics/pig.png",
+                "levested": "svinefarme"
+            }
+
+            console.log(
+                `navn:${dyr.navn}
+            type:${dyr.type}
+            billede:${dyr.billede}
+            levested:${dyr.levested}`);
+
+            /*const overskrift = document.querySelector("h3");
+            const foto = document.querySelector("img");
+            const pType = document.querySelector("article:nth-child(3) p");
+            const pLevested = document.querySelector("article:nth-child(4) p");*/
+
+            const destination = document.querySelector("#piggy");
+
+            destination.querySelector("h3").textContent = dyr.navn;
+            destination.querySelector("img").src = dyr.billede;
+            destination.querySelector("p:nth-child(3)").textContent = dyr.type;
+            destination.querySelector("p:nth-child(4)").textContent = dyr.levested;
+
+
+            /*const visObjekt = document.querySelector("article");
+
+            visObjekt.textContent =
+                `Dyr: ${dyr.navn},
+            type: ${dyr.type},
+            levested: ${dyr.levested}`;
+
+            //indsæt billede af gris
+            let grisImg = document.createElement("img");
+
+            grisImg.src = dyr.billede;
+
+            visObjekt.appendChild(grisImg);
+*/
+        }
+
+    </script>
+</body>
+
+</html>

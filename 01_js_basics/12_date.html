@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <h1>Velkommen til Dateingprogrammet 2021!</h1>
+    <h3>"Half your age, plus seven", er reglen for at date - overholdes denne ikke, kan I ikke date! Unge under 15, må ikke benytte dette program!</h3>
+    <p>Indtast din alder</p>
+    <input type="number" id="dinAlder">
+
+    <p>Indtast din dates alder</p>
+    <input type="number" id="dinDatesAlder">
+
+    <button>Klik for at se om i passer sammen</button>
+
+    <script>
+
+        //Variablerne angives øverst, og kaldes på igen, når de skal bruge i funktionen (i dette tilfælde)
+        //Variablerne angiver værdien der indtastes i inputfelterne, og har
+
+        let dinAlder = document.querySelector("#dinAlder").value;
+        let dinDatesAlder = document.querySelector("#dinDatesAlder").value;
+        let dinLavesteAlder;
+        let dinDatesLavesteAlder;
+
+        document.querySelector("button").addEventListener("click", buttonClicked);
+
+        function buttonClicked() {
+
+            dinAlder = document.querySelector("#dinAlder").value;
+            dinDatesAlder = document.querySelector("#dinDatesAlder").value;
+
+            dinLavesteAlder = dinAlder / 2 + 7;
+
+            dinDatesLavesteAlder = dinDatesAlder / 2 + 7;
+
+
+            if (dinAlder >= 15 && dinDatesAlder >= 15) {
+                if (dinLavesteAlder <= dinDatesAlder && dinDatesLavesteAlder <= dinAlder) {
+                    console.log("I må gerne date");
+                } else if (dinLavesteAlder > dinDatesAlder) {
+                    console.log("Din date er for ung")
+
+                } else if (dinDatesLavesteAlder > dinAlder) {
+                    console.log("Din date er for gammel")
+                }
+
+
+            } else {
+                if (dinAlder < 15) {
+                    console.log("Du er ikke gammel nok til at date");
+                } else if (dinDatesAlder < 15) {
+                    console.log("Din date er ikke gammel nok til at date");
+                }
+            }
+        }
+
+    </script>
+</body>
+
+</html>

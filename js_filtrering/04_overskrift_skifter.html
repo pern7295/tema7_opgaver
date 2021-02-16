@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Persongalleri</title>
+    <link rel="stylesheet" href="">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        img {
+            max-width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 1px;
+            padding: 0.5rem;
+        }
+
+        img:hover {
+            transform: scale(1.05);
+            transition: ease;
+        }
+
+        section {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            max-width: 100vw;
+            grid-gap: 2rem;
+        }
+
+        body {
+            margin: auto 0;
+            padding: 3rem;
+        }
+
+        .liste {
+            padding: 1.5rem;
+            border: 1px solid #dddddd;
+            background-color: #f8f8f8;
+            box-shadow: 5px 5px #eaeaea;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 3rem;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 1.5rem;
+        }
+
+        nav {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+
+        .valgt {
+            background-color: orange;
+        }
+
+        button {
+            padding: 0.5rem;
+            margin: 1rem;
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <h1>Alle</h1>
+        <nav>
+            <button data-troende="alle" class="valgt">Alle</button>
+            <button data-troende="ja">Troende</button>
+            <button data-troende="nej">Ikke troende</button>
+            <button data-troende="tvivler">Tvivler</button>
+        </nav>
+    </header>
+
+    <main>
+        <section></section>
+    </main>
+
+    <template>
+        <article id="person">
+            <h2 class="navn"></h2>
+            <p class="troende">Er du troende? </p>
+            <img src="" alt="" class="billede">
+        </article>
+    </template>
+
+
+    <script>
+        //KOPI af lærereksemplet
+
+        const header = document.querySelector("header h1");
+        const medieurl = "https://persongalleri-5d3e.restdb.io/media/";
+        const myHeaders = {
+            "x-apikey": "600fe9211346a1524ff12e31"
+        }
+
+        document.addEventListener("DOMContentLoaded", start)
+
+        let personer;
+        let filter = "alle";
+
+        function start() {
+            const filterKnapper = document.querySelectorAll("nav button");
+            filterKnapper.forEach(knap => knap.addEventListener("click", filtrerPersoner));
+            loadJSON();
+        }
+
+        function filtrerPersoner() {
+            filter = this.dataset.troende;
+
+            document.querySelector(".valgt").classList.remove("valgt");
+            this.classList.add("valgt");
+
+            visPersoner();
+            header.textContent = this.textContent;
+        }
+
+        async function loadJSON() {
+            const JSONData = await fetch("https://persongalleri-5d3e.restdb.io/rest/persongalleri", {
+                headers: myHeaders
+            });
+
+            personer = await JSONData.json();
+            console.log("Personer", personer);
+            visPersoner();
+        }
+
+        function visPersoner() {
+            const dest = document.querySelector("section");
+            const skabelon = document.querySelector("template").content;
+            dest.textContent = "";
+
+            personer.forEach(person => {
+                console.log("Troende", person.troende);
+
+                if (filter == person.troende || filter == "alle") {
+                    const klon = skabelon.cloneNode(true);
+                    klon.querySelector(".navn").textContent = person.fornavn + " " + person.efternavn;
+                    klon.querySelector(".billede").src = medieurl + person.billede;
+                    klon.querySelector(".troende").textContent += person.troende;
+                    dest.appendChild(klon);
+                }
+            })
+        }
+
+    </script>
+</body>
+
+</html>

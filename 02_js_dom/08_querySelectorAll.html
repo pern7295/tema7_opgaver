@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+
+    <style>
+        .boks {
+            width: 10vw;
+            height: 10vw;
+            margin: 1em;
+            background-color: orange;
+        }
+
+        .aktiv {
+            background-color: orchid;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="boks"></div>
+    <div class="boks"></div>
+    <div class="boks"></div>
+
+    <script>
+        //der oprettes et array, for indholdet af alle bokse
+        const alleBokse = document.querySelectorAll(".boks");
+
+        //der bruges en arrow-funktion, i stedet for at lave en hel funktion
+        alleBokse.forEach(boks => boks.addEventListener("click", aktiver));
+
+        //this henviser til alle .boks, og der tilføjes en toogle-class, ved klik
+        function aktiver() {
+            console.log(this);
+            this.classList.toggle("aktiv");
+        }
+
+    </script>
+</body>
+
+</html>

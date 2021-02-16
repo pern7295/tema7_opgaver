@@ -1,0 +1,17 @@
+[
+    {
+        "navn": "gris",
+        "type": "pattedyr",
+        "venner": ["koen", "hesten", "hanen"]
+            },
+    {
+        "navn": "løven",
+        "type": "savannen",
+        "venner": ["giraffen", "zebraen", "antilopen"]
+            },
+    {
+        "navn": "ræv",
+        "type": "pattedyr",
+        "venner": ["uglen", "musen", "rådyret"]
+            }
+]
