@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Persongalleri</title>
+    <link rel="stylesheet" href="">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        img {
+            max-width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 1px;
+            padding: 0.5rem;
+        }
+
+        img:hover {
+            transform: scale(1.05);
+            transition: ease;
+        }
+
+        section {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            max-width: 100vw;
+            grid-gap: 2rem;
+        }
+
+        body {
+            margin: auto 0;
+            padding: 3rem;
+        }
+
+        article {
+            padding: 1.5rem;
+            border: 1px solid #dddddd;
+            background-color: #f8f8f8;
+            box-shadow: 5px 5px #eaeaea;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 4rem,
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <main>
+        <h1>Overskrift</h1>
+        <section></section>
+    </main>
+
+    <template>
+        <article>
+            <h2 class="navn"></h2>
+            <img src="" alt="" class="billede">
+            <p class="hobby">Hobby: </p>
+            <p class="titel">Job: </p>
+            <p class="fødselsdag">Fødselsdag: </p>
+        </article>
+    </template>
+
+
+    <script>
+        const url = "https://persongalleri-5d3e.restdb.io/rest/persongalleri";
+
+        const medieurl = "https://persongalleri-5d3e.restdb.io/media/";
+
+        const options = {
+            headers: {
+                'x-apikey': "600fe9211346a1524ff12e31"
+            }
+        };
+
+        async function hentData() {
+            const resspons = await fetch(url, options);
+            const json = await resspons.json();
+            vis(json);
+        }
+
+        const section = document.querySelector("section");
+        const template = document.querySelector("template").content;
+
+        function vis(json) {
+            console.log(json)
+            json.forEach(person => {
+                const klon = template.cloneNode(true);
+                klon.querySelector(".billede").src = medieurl + person.billede;
+                klon.querySelector(".navn").textContent = `${person.fornavn}
+                ${person.efternavn}`;
+                klon.querySelector(".titel").textContent += person.titel;
+                klon.querySelector(".hobby").textContent += person.hobby;
+                klon.querySelector(".fødselsdag").textContent += person.fødselsdag;
+                section.appendChild(klon);
+            })
+        }
+
+        hentData();
+
+    </script>
+</body>
+
+</html>
